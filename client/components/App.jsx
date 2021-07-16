@@ -13,9 +13,9 @@ function App (props) {
 
     <div>
       <Route path = '/' component={Contact} />
-      <Route path = '/' component={MyMonthlyCalendar} />
+      {/* <Route path = '/' component={MyMonthlyCalendar} />
       <Route path = '/register' component={Register} />
-      <Route path = '/login' component={SignIn} />
+      <Route path = '/login' component={SignIn} /> */}
       <Route exact path = '/calendar' component={MyMonthlyCalendar} />
     </div>
   )

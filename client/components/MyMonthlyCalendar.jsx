@@ -51,7 +51,7 @@ export default function MyMonthlyCalendar () {
 
   return (
     <>
-      <div>
+      <div className="rc-border rc-p-4 md:rc-w-3/4 lg:rc-w-1/2 rc-w-full">
         <MonthlyCalendar
           currentMonth={currentMonth}
           onCurrentMonthChange={date => setCurrentMonth(date)}
