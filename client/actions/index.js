@@ -16,3 +16,23 @@
 // //   return postUser(username, password)
 // //   .then(res =>)
 
+export function saveEvent (event) {
+  return (dispatch) => {
+    createEvent(event)
+      .then((id) => {
+        dispatch(addEvent(event, id))
+        return null
+      })
+      .catch(() => {
+        console.log('error: could not create new event')
+      })
+  }
+}
+
+export function addEvent (event, id) {
+  return {
+    type: 'ADD_EVENT',
+    id,
+    event
+  }
+}
