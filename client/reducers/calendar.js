@@ -6,5 +6,7 @@ export default funtuon (state = initialState, action) {
     switch(action.type) {
         case 'ADD_EVENT':
             return [...state, { id, event}]
+            default:
+                return state
     }
 }
