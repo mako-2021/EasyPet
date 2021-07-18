@@ -20,6 +20,7 @@ import { createEvent } from '../apis/apiClient'
 export function saveEvent (event) {
   return (dispatch) => {
     createEvent(event)
+    console.log(event)
       .then((id) => {
         dispatch(addEvent(event, id))
         return null

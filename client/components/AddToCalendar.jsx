@@ -5,7 +5,7 @@ export default function AddToCalendar (props) {
   const [eventItems, setEventItems] = useState([
     {
       title: '',
-      date: subHours(new Date())
+      date: subHours(new Date(), 1)
     }
   ])
 
@@ -20,7 +20,7 @@ export default function AddToCalendar (props) {
 
   function handleSubmit (e) {
     e.preventDefault()
-    props.dispatch(saveEvent(event))
+    props.dispatch(saveEvent(e))
     setEventItems({
       title: '',
       date: subHours(new Date())
@@ -33,7 +33,7 @@ export default function AddToCalendar (props) {
 
       <form>
         <input onChange={handleChange} type='text' id='title' placeholder="Appointment info" />
-        <input onChange={handleChange} type='text' id='type' placeholder='Type?' />
+        {/* <input onChange={handleChange} type='text' id='type' placeholder='Type?' /> */}
         <input onChange={handleChange} type='text' id='date' placeholder='Date'/>
         <button onSubmit={handleSubmit}>Submit</button>
       </form>
