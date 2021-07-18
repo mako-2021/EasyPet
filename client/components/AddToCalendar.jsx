@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { saveEvent } from '../actions'
 import { subHours } from 'date-fns'
 export default function AddToCalendar (props) {
-  // TODO: create actions to handle these functions
-
   const [eventItems, setEventItems] = useState([
     {
       title: '',
