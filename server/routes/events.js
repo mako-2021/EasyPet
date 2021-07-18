@@ -2,10 +2,12 @@ const express = require('express')
 
 const router = express.Router()
 
+const { getAllEvents, saveEvent } = require('../db/db')
+
 // TODO: write get events function
 
 router.get('/', (req, res) => {
-  getEvents()
+  getAllEvents()
     .then(results => {
       res.json(results)
       return null

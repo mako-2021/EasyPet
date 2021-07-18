@@ -52,13 +52,13 @@ function getAllEvents (db = connection) {
     .select()
 }
 // TODO: make this function work and create a function that joins user db and events db
-// function addNewEvent () {
-//   return db('events')
-//     .then(id => {
-//       return db('users')
-//         .insert({ title, type, profile_id: profileId })
-//     })
-// }
+function addNewEvent (id, db = connection) {
+  return db('events')
+    .then(id => {
+      return db('users')
+        .insert({ title: '', type: '', profile_id: '' })
+    })
+}
 
 module.exports = {
   userExists,
@@ -66,5 +66,6 @@ module.exports = {
   userEmailExists,
   users,
   insertNewUser,
-  getAllEvents
+  getAllEvents,
+  addNewEvent
 }
