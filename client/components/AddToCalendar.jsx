@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
-
-export default function AddToCalendar () {
+import React, { useState } from 'react'
+import { saveEvent } from '../actions'
+import { subHours } from 'date-fns'
+export default function AddToCalendar (props) {
   // TODO: create actions to handle these functions
 
   const [eventItems, setEventItems] = useState([
@@ -14,12 +15,14 @@ export default function AddToCalendar () {
     const { title, date } = e.target
     setEventItems({
       ...eventItems,
-      [title]: value
+      [title]: '',
+      [date]: ''
     })
   }
 
-  function handleClick (e) {
+  function handleSubmit (e) {
     e.preventDefault()
+    props.dispatch(saveEvent(event))
     setEventItems({
       title: '',
       date: subHours(new Date())
@@ -31,10 +34,10 @@ export default function AddToCalendar () {
     <div>
 
       <form>
-        <input type='text' id='title' placeholder="Appointment info" />
-        <input type='text' id='type' placeholder='Type?' />
-        <input type='text' id='date' placeholder='Date'/>
-        <button>Submit</button>
+        <input onChange={handleChange} type='text' id='title' placeholder="Appointment info" />
+        <input onChange={handleChange} type='text' id='type' placeholder='Type?' />
+        <input onChange={handleChange} type='text' id='date' placeholder='Date'/>
+        <button onSubmit={handleSubmit}>Submit</button>
       </form>
     </div>
 
