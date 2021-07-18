@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
 
-//Example: 
-// import fruits from './fruits'
+import calendar from './calendar'
 
 export default combineReducers({
-  // fruits
+  calendar
 })
