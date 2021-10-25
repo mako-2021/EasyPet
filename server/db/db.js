@@ -8,12 +8,7 @@ function userExists (username, db = connection) {
     .where('username', username)
     .first()
     .then(result => {
-      // this could just be return (result === undefined)
-      if (result === undefined) {
-        return false
-      } else {
-        return true
-      }
+      (result === undefined)
     })
 }
 
